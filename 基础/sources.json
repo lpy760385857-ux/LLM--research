@@ -1,0 +1,45 @@
+{
+  "category": "基础",
+  "papers": [
+    {
+      "filename": "01_Word2Vec_2013.pdf",
+      "title": "Efficient Estimation of Word Representations in Vector Space",
+      "download_url": "https://raw.githubusercontent.com/manjunath5496/Word-Embeddings-Papers/c99fb9b919008298e3f64271269afd8b5626ac7b/wem%281%29.pdf",
+      "bytes": 228716,
+      "pages": 12,
+      "sha256": "a44d7e22d2005752271c9cc1929c6462d4c8270916b063977992a883e3a54362",
+      "version": "arXiv:1301.3781v3",
+      "official_url": "https://arxiv.org/abs/1301.3781"
+    },
+    {
+      "filename": "02_GloVe_2014.pdf",
+      "title": "GloVe: Global Vectors for Word Representation",
+      "download_url": "https://raw.githubusercontent.com/manjunath5496/Word-Embeddings-Papers/c99fb9b919008298e3f64271269afd8b5626ac7b/wem%2818%29.pdf",
+      "bytes": 2618397,
+      "pages": 12,
+      "sha256": "c67dd6181d491bc3d88ff9b3500c13f0620210f12845029a6f4027d9c4c522dc",
+      "version": "EMNLP 2014 author PDF",
+      "official_url": "https://aclanthology.org/D14-1162/"
+    },
+    {
+      "filename": "03_FastText_2017.pdf",
+      "title": "Enriching Word Vectors with Subword Information",
+      "download_url": "https://raw.githubusercontent.com/Eajack/NLP-Papers/9ff8e2c19eed2e837258ef92a6ca5422b5b22a2d/Word%20Embedding%E8%AF%8D%E5%90%91%E9%87%8F/FastText/Enriching%20Word%20Vectors%20with%20Subword%20Information.pdf",
+      "bytes": 2388262,
+      "pages": 12,
+      "sha256": "27cf88008f0b55a2a8bc39d0863e1007c2b4a2ec76c8918bb92ea62d360e2f51",
+      "version": "arXiv:1607.04606v2",
+      "official_url": "https://aclanthology.org/Q17-1010/"
+    },
+    {
+      "filename": "04_Word2Vec_Negative_Sampling_2013.pdf",
+      "title": "Distributed Representations of Words and Phrases and their Compositionality",
+      "download_url": "https://raw.githubusercontent.com/manjunath5496/Word-Embeddings-Papers/c99fb9b919008298e3f64271269afd8b5626ac7b/wem%282%29.pdf",
+      "bytes": 125222,
+      "pages": 9,
+      "sha256": "b21848e7b9b6ba1191f8283892a72b5529205bfdeca462403bd69ab6c6f8c6d1",
+      "version": "arXiv:1310.4546v1",
+      "official_url": "https://arxiv.org/abs/1310.4546"
+    }
+  ]
+}
