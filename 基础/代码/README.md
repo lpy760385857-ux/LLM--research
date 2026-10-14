@@ -2,6 +2,8 @@
 
 对应论文：[Efficient Estimation of Word Representations in Vector Space](../01_Word2Vec_2013.pdf)。
 
+初学者先读：[Word2Vec 源码阅读指南](Word2Vec源码阅读指南.md)，按训练流程理解变量、函数、CBOW、Skip-gram 和负采样。
+
 ## 源码来源
 
 - 论文第 11 页脚注 4 指向原项目：<https://code.google.com/p/word2vec/>。

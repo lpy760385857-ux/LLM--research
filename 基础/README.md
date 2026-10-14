@@ -4,6 +4,8 @@
 
 Word2Vec 配套代码已收录在 [代码/word2vec](代码/word2vec)，来源为作者 Tomas Mikolov 的 GitHub 仓库。参见 [源码来源与运行说明](代码/README.md)。
 
+看不懂 C 代码时，可以从 [Word2Vec 源码阅读指南](代码/Word2Vec源码阅读指南.md) 开始。
+
 ## 论文目录
 
 | 类型 | 论文 PDF | 年份 | 阅读重点 | 官方入口 |
