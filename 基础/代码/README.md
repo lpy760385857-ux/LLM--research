@@ -4,6 +4,8 @@
 
 初学者先读：[Word2Vec 源码阅读指南](Word2Vec源码阅读指南.md)，按训练流程理解变量、函数、CBOW、Skip-gram 和负采样。
 
+动手学习：[Word2Vec 源码练习册（Word 文档）](Word2Vec源码练习册.docx)。包含 12 个模块、60 道题、提示与答题区、独立参考答案，以及可运行的小语料实验。
+
 ## 源码来源
 
 - 论文第 11 页脚注 4 指向原项目：<https://code.google.com/p/word2vec/>。
