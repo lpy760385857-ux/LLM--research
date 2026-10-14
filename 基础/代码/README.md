@@ -13,7 +13,7 @@
 - 收录提交：`20c129af10659f7c50e86e3be406df663beff438`。
 - 许可证：Apache License 2.0，原始 [LICENSE](word2vec/LICENSE) 与版权声明已保留。
 
-本目录收录完整的 17 个上游受版本控制文件，逐文件核对内容与执行权限；代码未修改。来源记录见 [word2vec-source.json](word2vec-source.json)。源码直接纳入当前仓库，下载当前仓库即可获得，无需额外初始化子模块。上游 Git 历史留在作者仓库，编译产物不提交。
+本目录收录完整的 17 个上游受版本控制文件，导入时逐文件核对内容与执行权限；其中 `word2vec.c` 已添加中文教学注释，执行逻辑保持上游版本；其他源码保持原样。来源记录见 [word2vec-source.json](word2vec-source.json)。源码直接纳入当前仓库，下载当前仓库即可获得，无需额外初始化子模块。上游 Git 历史留在作者仓库，编译产物不提交。
 
 这是作者项目的后续版本，包含 CBOW、Skip-gram、层次 softmax、负采样和短语工具；并非严格冻结在首篇论文发表时的代码。负采样可结合 [后续论文](../04_Word2Vec_Negative_Sampling_2013.pdf) 阅读。
 

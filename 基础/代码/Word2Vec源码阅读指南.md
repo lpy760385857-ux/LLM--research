@@ -2,7 +2,7 @@
 
 面向第一次阅读 C 语言机器学习代码的学习者。目标是理解数据流和训练过程，再逐步阅读实现细节。
 
-对应论文：[Efficient Estimation of Word Representations in Vector Space](../01_Word2Vec_2013.pdf)。对应源码：[word2vec.c](word2vec/word2vec.c)，作者仓库为 [tmikolov/word2vec](https://github.com/tmikolov/word2vec)，收录提交为 `20c129af10659f7c50e86e3be406df663beff438`。本文行号均对应此版本。
+对应论文：[Efficient Estimation of Word Representations in Vector Space](../01_Word2Vec_2013.pdf)。对应源码：[word2vec.c](word2vec/word2vec.c)，作者仓库为 [tmikolov/word2vec](https://github.com/tmikolov/word2vec)，收录提交为 `20c129af10659f7c50e86e3be406df663beff438`。正文行号指上游未注释版本；源码跳转链接已调整到当前中文注释版。可优先按函数名定位。
 
 ## 1. 先理解程序在做什么
 
@@ -34,12 +34,12 @@ flowchart TD
 
 | 顺序 | 函数或位置 | 源码行号 | 先回答的问题 |
 | --- | --- | --- | --- |
-| 1 | `main` | [640](word2vec/word2vec.c#L640) | 用户如何指定语料、维度和训练模式？ |
-| 2 | `TrainModel` | [557](word2vec/word2vec.c#L557) | 训练前后分别做了什么？ |
-| 3 | `LearnVocabFromTrainFile` | [272](word2vec/word2vec.c#L272) | 文本如何变成词表？ |
-| 4 | `InitNet` | [350](word2vec/word2vec.c#L350) | 向量在哪里创建、如何初始化？ |
-| 5 | `TrainModelThread` | [374](word2vec/word2vec.c#L374) | 如何取上下文、计算分数和更新参数？ |
-| 6 | 保存向量的循环 | [572](word2vec/word2vec.c#L572) | 最后保存的是哪组参数？ |
+| 1 | `main` | [640](word2vec/word2vec.c#L728) | 用户如何指定语料、维度和训练模式？ |
+| 2 | `TrainModel` | [557](word2vec/word2vec.c#L634) | 训练前后分别做了什么？ |
+| 3 | `LearnVocabFromTrainFile` | [272](word2vec/word2vec.c#L303) | 文本如何变成词表？ |
+| 4 | `InitNet` | [350](word2vec/word2vec.c#L385) | 向量在哪里创建、如何初始化？ |
+| 5 | `TrainModelThread` | [374](word2vec/word2vec.c#L413) | 如何取上下文、计算分数和更新参数？ |
+| 6 | 保存向量的循环 | [572](word2vec/word2vec.c#L653) | 最后保存的是哪组参数？ |
 
 第一遍先看 `-threads 1 -hs 0 -negative 5` 对应的路径；哈希表、Huffman 树、多线程和聚类输出可以放到后面。
 
@@ -85,7 +85,7 @@ flowchart TD
 
 ## 5. 文本如何变成词 ID？
 
-`ReadWord`（[71 行](word2vec/word2vec.c#L71)）按空格、制表符和换行读词；换行产生 `</s>` 句界标记。它不是现代大模型的子词 tokenizer。
+`ReadWord`（[71 行](word2vec/word2vec.c#L88)）按空格、制表符和换行读词；换行产生 `</s>` 句界标记。它不是现代大模型的子词 tokenizer。
 
 因此，中文语料需要事先分词并用空白隔开。直接把“我喜欢看电影”交给它，通常会被当成一个整体词项。
 
@@ -151,7 +151,7 @@ syn0[a * layer1_size + b] =
 [喜欢的向量 + 电影的向量] / 2 → 预测“看”
 ```
 
-真实代码（[444 行](word2vec/word2vec.c#L444)附近）：
+真实代码（[444 行](word2vec/word2vec.c#L494)附近）：
 
 ```c
 for (c = 0; c < layer1_size; c++)
@@ -173,7 +173,7 @@ for (c = 0; c < layer1_size; c++) neu1[c] /= cw;
 
 教材通常描述为：用中心词预测周围的词。例如“看 → 喜欢”和“看 → 电影”。
 
-但这份实现的实际方向需要看代码（[496 行](word2vec/word2vec.c#L496)附近）：
+但这份实现的实际方向需要看代码（[496 行](word2vec/word2vec.c#L560)附近）：
 
 ```c
 last_word = sen[c];
@@ -205,7 +205,7 @@ if (d == 0) {
 
 第一项是真实目标，标签为 1；后面的项是抽样目标，标签为 0。`-negative 5` 表示进行 5 次负样本抽取尝试；抽到正目标会被跳过，负样本也可能重复，因此不一定有 5 个不同负词。
 
-抽样概率近似正比于 `词频^0.75`，见 `InitUnigramTable`（[52 行](word2vec/word2vec.c#L52)）。负词不是人工挑选的“反义词”，也不保证与上下文语义无关。
+抽样概率近似正比于 `词频^0.75`，见 `InitUnigramTable`（[52 行](word2vec/word2vec.c#L67)）。负词不是人工挑选的“反义词”，也不保证与上下文语义无关。
 
 ### 9.2 计算匹配分数
 
@@ -267,9 +267,9 @@ PyTorch 会把“计算损失 → 求梯度 → 更新参数”写成框架调�
 
 | 机制 | 在源码里的位置 | 用途 |
 | --- | --- | --- |
-| 动态窗口 | [434 行](word2vec/word2vec.c#L434) | 随机缩小最大窗口，本次实际半径是 `window - b` |
-| 高频词下采样 | [407 行](word2vec/word2vec.c#L407)附近 | 减少常见词占据的大量训练机会，保留顺序但改变训练序列 |
-| 学习率衰减 | [400 行](word2vec/word2vec.c#L400)附近 | 随训练进度减小更新步长 |
+| 动态窗口 | [434 行](word2vec/word2vec.c#L482) | 随机缩小最大窗口，本次实际半径是 `window - b` |
+| 高频词下采样 | [407 行](word2vec/word2vec.c#L450)附近 | 减少常见词占据的大量训练机会，保留顺序但改变训练序列 |
+| 学习率衰减 | [400 行](word2vec/word2vec.c#L442)附近 | 随训练进度减小更新步长 |
 | 层次 softmax | `CreateBinaryTree` 与 `if (hs)` | 沿 Huffman 树的路径训练，避免对整个词表做普通 softmax |
 | 多线程 | `pthread_create` / `pthread_join` | 多个线程处理不同文本片段，共享参数；默认不是确定性训练 |
 | 聚类输出 | `TrainModel` 中 `classes` 分支 | `-classes` 非零时输出词类别，而不是通常的词向量 |
