@@ -1,0 +1,9 @@
+{
+  "paper": "Efficient Estimation of Word Representations in Vector Space",
+  "original_project_url": "https://code.google.com/p/word2vec/",
+  "upstream_url": "https://github.com/tmikolov/word2vec",
+  "upstream_commit": "20c129af10659f7c50e86e3be406df663beff438",
+  "license": "Apache-2.0",
+  "import_method": "Full tracked-file snapshot from git archive; upstream Git metadata and generated binaries excluded",
+  "source_directory": "word2vec"
+}

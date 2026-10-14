@@ -2,6 +2,8 @@
 
 核心阅读顺序：**Word2Vec → GloVe → FastText**。学习 Word2Vec 的训练细节时，可穿插阅读负采样补充论文。
 
+Word2Vec 配套代码已收录在 [代码/word2vec](代码/word2vec)，来源为作者 Tomas Mikolov 的 GitHub 仓库。参见 [源码来源与运行说明](代码/README.md)。
+
 ## 论文目录
 
 | 类型 | 论文 PDF | 年份 | 阅读重点 | 官方入口 |
