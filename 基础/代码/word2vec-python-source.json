@@ -1,0 +1,37 @@
+{
+  "upstream_url": "https://github.com/OlgaChernytska/word2vec-pytorch",
+  "upstream_commit": "18d4f24c4d82dde76de9f6e4d88bbcbcf68befc2",
+  "source_directory": "word2vec-python",
+  "included_files": [
+    ".gitignore",
+    "README.md",
+    "config.yaml",
+    "docs/cbow_detailed.png",
+    "docs/cbow_overview.png",
+    "docs/data_preparation.png",
+    "docs/skipgram_detailed.png",
+    "docs/skipgram_overview.png",
+    "docs/word_context.png",
+    "notebooks/Inference.ipynb",
+    "requirements.txt",
+    "train.py",
+    "utils/constants.py",
+    "utils/dataloader.py",
+    "utils/helper.py",
+    "utils/model.py",
+    "utils/trainer.py"
+  ],
+  "excluded_pretrained_artifacts": [
+    "weights/cbow_WikiText2/config.yaml",
+    "weights/cbow_WikiText2/loss.json",
+    "weights/cbow_WikiText2/model.pt",
+    "weights/cbow_WikiText2/vocab.pt",
+    "weights/skipgram_WikiText2/config.yaml",
+    "weights/skipgram_WikiText2/loss.json",
+    "weights/skipgram_WikiText2/model.pt",
+    "weights/skipgram_WikiText2/vocab.pt"
+  ],
+  "license_declaration": "Upstream README.md declares MIT; upstream commit contains no standalone LICENSE file. Original README preserved.",
+  "local_source_modifications": false,
+  "validation": "Imported files match upstream Git blobs; all Python source files parse successfully. Training not run."
+}

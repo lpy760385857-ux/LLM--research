@@ -1,5 +1,7 @@
 # Word2Vec 作者源码
 
+Python 教学版本已收录：[中文阅读入口](Word2Vec-Python阅读入口.md) · [查看 Python 源码](word2vec-python/utils/model.py)。
+
 对应论文：[Efficient Estimation of Word Representations in Vector Space](../01_Word2Vec_2013.pdf)。
 
 初学者先读：[Word2Vec 源码阅读指南](Word2Vec源码阅读指南.md)，按训练流程理解变量、函数、CBOW、Skip-gram 和负采样。
